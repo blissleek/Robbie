@@ -1,0 +1,64 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  main:
+    banner-mode: console
+  application:
+    name: robbie-project
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_URL:localhost:3306/${MYSQL_DATABASE:jwt}}?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2b8
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASS:root}
+  # 开启文件上传功能
+  servlet:
+    multipart:
+      enabled: on
+      max-file-size: 100MB
+      max-request-size: 100MB
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+#  flyway:
+#    validate-on-migrate: false
+#    locations: classpath:db/migration
+#  security:
+#    user:
+#      password: admin
+#      name: admin
+
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.rookie.jwt.org.nero.robbie.attachment.entity
+#
+#jwt:
+#  tokenHeader: Authorization #JWT存储的请求头
+#  secret: blissleek #JWT加解密使用的密钥
+#  expiration: 604800 #JWT的超期限时间(60*60*24)
+#  tokenHead: Bearer  #JWT负载中拿到开头
+#
+#secure:
+#  ignored:
+#    urls: #安全路径白名单
+#      - /swagger-ui/index.html
+#      - /swagger-resources/**
+#      - /swagger/**
+#      - /**/v2/api-docs
+#      - /**/*.js
+#      - /**/*.css
+#      - /**/*.png
+#      - /**/*.ico
+#      - /webjars/springfox-swagger-ui/**
+#      - /actuator/**
+#      - /druid/**
+#      - /admin/login
+#      - /admin/register
+#      - /minio/upload

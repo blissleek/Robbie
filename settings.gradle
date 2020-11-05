@@ -1,0 +1,5 @@
+rootProject.name = 'robbie'
+include 'robbie-oauth'
+include 'robbie-api'
+include 'robbie-attachment'
+
